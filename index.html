@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Trading Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MaTrade</h1>
+    </header>
+    <div id="auth-popup" style="display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #cc9900; padding: 40px; border-radius: 10px; z-index: 1000;">
+        <h2 style="color: white;">MaTrade</h2>
+        <p>Continue as:</p>
+        <button class="auth-button tab" id="guest-button" style="margin: 10px;">Continue as Guest</button>
+        <button class="auth-button tab" id="signup-button" style="margin: 10px;">Sign Up</button>
+    </div>
+
+    <main>
+        <section id="markets" style="display: block;">
+            <h2>Crypto Markets</h2>
+            <ul id="market-list">
+                <li>BTC: $<span id="btc-price">0</span></li>
+                <li>ETH: $<span id="eth-price">0</span></li>
+                <li>LTC: $<span id="ltc-price">0</span></li>
+                <li>XRP: $<span id="xrp-price">0</span></li>
+            </ul>
+        </section>
+        <section id="positions" style="display: none;">
+            <h2>Your Positions</h2>
+            <p>No positions available.</p>
+        </section>
+        <section id="account" style="display: none;">
+            <h2>Account Balance</h2>
+            <p id="balance">517.74 EUR</p>
+            <p>Name: John Doe</p>
+        </section>
+    </main>
+    <nav>
+        <div class="tab" onclick="location.href='markets.html'">Markets</div>
+        <div class="tab" onclick="location.href='positions.html'">Positions</div>
+        <div class="tab" onclick="location.href='account.html'">Account</div>
+
+    </nav>
+
+    <script src="script.js"></script>
+    <script>
+        // Show the auth popup on first visit
+        window.onload = function() {
+            document.getElementById('auth-popup').style.display = 'block';
+        };
+
+        document.getElementById('guest-button').onclick = function() {
+            document.getElementById('auth-popup').style.display = 'none';
+            // Load market data or navigate to markets tab
+            document.getElementById('markets-tab').click();
+        };
+
+        document.getElementById('signup-button').onclick = function() {
+            alert('Sign Up functionality not implemented yet.');
+        };
+    </script>
+</body>
+</html>
